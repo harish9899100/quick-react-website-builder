@@ -29,7 +29,7 @@ const SearchFilters = ({
   const resetFilters = () => {
     setPriceRange([0, 50000]);
     setPropertyType("all");
-    setSelectedCity("");
+    setSelectedCity("all");
   };
 
   return (
@@ -51,7 +51,7 @@ const SearchFilters = ({
               <SelectValue placeholder="Select city" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="">All Cities</SelectItem>
+              <SelectItem value="all">All Cities</SelectItem>
               {cities.map((city) => (
                 <SelectItem key={city} value={city}>
                   {city}

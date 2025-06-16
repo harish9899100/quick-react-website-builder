@@ -12,14 +12,14 @@ import { mockProperties } from "@/data/mockData";
 
 const Index = () => {
   const [searchQuery, setSearchQuery] = useState("");
-  const [selectedCity, setSelectedCity] = useState("");
+  const [selectedCity, setSelectedCity] = useState("all");
   const [priceRange, setPriceRange] = useState([0, 50000]);
   const [propertyType, setPropertyType] = useState("all");
 
   const filteredProperties = mockProperties.filter(property => {
     const matchesSearch = property.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
                          property.location.toLowerCase().includes(searchQuery.toLowerCase());
-    const matchesCity = !selectedCity || property.city.toLowerCase() === selectedCity.toLowerCase();
+    const matchesCity = selectedCity === "all" || property.city.toLowerCase() === selectedCity.toLowerCase();
     const matchesPrice = property.price >= priceRange[0] && property.price <= priceRange[1];
     const matchesType = propertyType === "all" || property.type === propertyType;
     
@@ -86,7 +86,7 @@ const Index = () => {
               <div className="flex justify-between items-center mb-6">
                 <h2 className="text-2xl font-bold">
                   {filteredProperties.length} Properties Found
-                  {selectedCity && ` in ${selectedCity}`}
+                  {selectedCity !== "all" && ` in ${selectedCity}`}
                 </h2>
                 <Badge variant="secondary" className="text-sm">
                   {filteredProperties.length} results
