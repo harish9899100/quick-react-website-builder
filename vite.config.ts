@@ -3,9 +3,9 @@ import react from "@vitejs/plugin-react-swc";
 import path from "path";
 import { componentTagger } from "lovable-tagger";
 
-// https://vitejs.dev/config/
+// https://harish9899100.github.io/my-app
 export default defineConfig(({ mode }) => ({
-  base: "/quick-react-website-builder/",
+  base: "/my-app/",
   server: {
     host: "::",
     port: 8080,
