@@ -5,7 +5,7 @@ import { componentTagger } from "lovable-tagger";
 
 // https://harish9899100.github.io/my-app
 export default defineConfig(({ mode }) => ({
-  base: "/github-friendly-blog/",
+  base: "/quick-react-website-builder/",
   server: {
     host: "::",
     port: 8080,
