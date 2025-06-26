@@ -1,9 +1,9 @@
-name: maybe finally deploy
+name: Deploy to GitHub Pages
 
 on:
   push:
     branches:
-      - main 
+      - main
 
 jobs:
   build-deploy:
@@ -16,7 +16,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 16
+          node-version: 20  # ✅ Must be 20 or later to support Web Crypto
 
       - name: Install dependencies
         run: npm install
@@ -28,5 +28,6 @@ jobs:
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./quick-react-website-builder
+          publish_dir: ./quick-react-website-builder  # or ./build, depending on your Vite config
+
 
